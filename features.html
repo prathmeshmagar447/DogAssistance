@@ -3,6 +3,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Features - DoggyBot</title>
+<link rel="icon" href="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" type="image/x-icon">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -38,22 +39,82 @@
                 'GRAD' 0,
                 'opsz' 24
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+        }
+
+        body.dark-mode .text-text-light {
+            color: #e2e8f0;
+        }
+
+        /* Adjust button colors for dark mode */
+        body.dark-mode #theme-toggle {
+            background-color: #4a5568; /* Darker gray for toggle button in dark mode */
+            color: #e2e8f0; /* Light icon in dark mode */
+        }
+
+        body.dark-mode #theme-toggle:hover {
+            background-color: #636b7a; /* Even darker gray on hover in dark mode */
+        }
+
+        body.dark-mode .bg-background-light {
+            background-color: #1a202c;
+        }
+
+
+        body.dark-mode .bg-white {
+            background-color: #2d3748; /* Darker background for chat messages */
+        }
+
+        body.dark-mode .bg-gray-100 {
+            background-color: #4a5568; /* Darker gray for bot messages */
+        }
+
+        body.dark-mode .text-text-light\/80 {
+            color: rgba(226, 232, 240, 0.8);
+        }
+
+        body.dark-mode .text-text-light\/60 {
+            color: rgba(226, 232, 240, 0.6);
+        }
+
+        body.dark-mode .border-gray-300 {
+            border-color: #4a5568;
+        }
+
+        body.dark-mode .bg-gray-300 {
+            background-color: #4a5568;
+        }
+
+        body.dark-mode .bg-gray-100 {
+            background-color: #2d3748;
+        }
     </style>
 </head>
 <body class="bg-background-light font-display text-text-light">
 <div class="flex flex-col min-h-screen">
-<header class="border-b border-primary/20">
+<header class="">
 <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
 <div class="flex items-center gap-3">
-<svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4ZM17 17H7V16C7 14.34 10.34 13 12 13C13.66 13 17 14.34 17 16V17Z"></path>
-</svg>
-<h1 class="text-2xl font-bold text-text-light">DoggyBot</h1>
+<a href="index.html" class="flex items-center gap-3">
+    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="DoggyBot Logo" class="w-8 h-8 object-cover rounded-full"/>
+    <h1 class="text-2xl font-bold text-text-light">DoggyBot</h1>
+</a>
 </div>
 <div class="hidden md:flex items-center space-x-8">
 <a class="text-text-light hover:text-primary transition-colors" href="index.html">Home</a>
-<a class="text-text-light hover:text-primary transition-colors" href="about.html">About</a>
 <a class="text-primary font-bold hover:text-primary transition-colors" href="features.html">Features</a>
+<button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors flex items-center justify-center">
+    <svg id="moon-icon" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+    </svg>
+    <svg id="sun-icon" class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+    </svg>
+</button>
 </div>
 <button class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
                     Start Chatting
@@ -179,11 +240,12 @@
 </div>
 </div>
 </main>
-<footer class="bg-background-light py-6 border-t border-primary/20">
+<footer class="bg-background-light py-6">
 <div class="container mx-auto px-6 text-center text-text-light/60">
 <p>© 2024 DoggyBot. All rights reserved. Built with love for our furry friends.</p>
 </div>
 </footer>
 </div>
 
+<script src="script.js"></script>
 </body></html>

@@ -6,6 +6,10 @@
     const userInput = document.getElementById('user-input');
     const chatMessages = document.getElementById('chat-messages');
     const loadingIndicator = document.getElementById('loading-indicator');
+    const themeToggle = document.getElementById('theme-toggle'); // New: Theme toggle button
+    const body = document.body; // New: Reference to the body element
+
+    let chatHistory = []; // New: Array to store chat history
 
     // Initially disable send button
     sendButton.disabled = true;
@@ -55,12 +59,16 @@
         if (message === '') return;
 
         appendMessage('user', message);
+        chatHistory.push({ role: 'user', content: message }); // Add user message to history
+
         userInput.value = '';
         sendButton.disabled = true; // Disable after sending
         sendButton.classList.add('opacity-50', 'cursor-not-allowed');
 
         if (message.toLowerCase() === '/info' || message.toLowerCase() === '/help') {
-            appendMessage('bot', displayBotInfo());
+            const botInfo = displayBotInfo();
+            appendMessage('bot', botInfo);
+            chatHistory.push({ role: 'assistant', content: botInfo }); // Add bot info to history
             return;
         }
 
@@ -73,16 +81,16 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message }),
+                body: JSON.stringify({ messages: chatHistory }), // Send entire chat history
             });
 
             const data = await response.json();
             appendMessage('bot', data.response);
-            // Removed: Append question suggestions after every bot response
-            // appendMessage('bot', displayBotInfo());
+            chatHistory.push({ role: 'assistant', content: data.response }); // Add bot response to history
         } catch (error) {
             console.error('Error sending message:', error);
             appendMessage('bot', 'Sorry, something went wrong. Please try again later.');
+            chatHistory.push({ role: 'assistant', content: 'Sorry, something went wrong. Please try again later.' }); // Add error to history
         } finally {
             loadingIndicator.classList.add('hidden'); // Hide loading indicator
         }
@@ -174,3 +182,21 @@ This chatbot is an AI assistant, leveraging OpenAI's advanced language models. I
         chatMessages.appendChild(messageContainer);
         chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
     }
+
+    // New: Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        // Store user preference
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // New: Apply saved theme on load
+    document.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+        }
+    });

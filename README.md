@@ -19,7 +19,6 @@ This project provides a web application featuring an AI-powered chatbot dedicate
 ## Project Structure
 
 *   `index.html`: The main landing page of the application.
-*   `about.html`: Provides information about the project and its purpose.
 *   `features.html`: Details the key features and functionalities of the chatbot.
 *   `script.js`: Contains the client-side JavaScript logic for interactive elements, chat functionality, and theme toggling.
 *   `server.js`: Implements the backend server using Express.js, handles API requests, and integrates with the OpenAI API.

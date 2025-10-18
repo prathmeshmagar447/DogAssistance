@@ -20,16 +20,23 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 app.post('/chat', async (req, res) => {
-    const userMessage = req.body.message;
+    console.log('Received chat request!'); // Added for debugging
+    const { messages } = req.body; // Expecting an array of messages
 
     try {
         const chatCompletion = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
-            messages: [{ role: 'user', content: userMessage }],
+            messages: [
+                {
+                    role: 'system',
+                    content: 'You are DoggyBot, an AI-powered chatbot dedicated to dog assistance. Provide comprehensive information, practical advice, and engaging content covering various aspects of dogs, including their care, behavior, training, and general facts. Maintain a friendly, encouraging, and knowledgeable tone. Always stay on topic about dogs.'
+                },
+                ...messages
+            ],
         });
         res.json({ response: chatCompletion.choices[0].message.content });
     } catch (error) {
-        console.error('Error generating content from OpenAI API:', error);
+        console.error('Error generating content from OpenAI API:', error.message || error); // Log full error
         res.status(500).json({ error: 'Failed to get response from AI.' });
     }
 });

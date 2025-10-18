@@ -110,12 +110,12 @@
             </button>
         </nav>
     </header>
-    <main class="flex-grow container mx-auto px-6 py-8 flex flex-col">
-        <div id="chat-messages" class="flex-grow h-full overflow-y-auto mb-4 p-4 bg-white rounded-lg shadow-inner custom-scrollbar">
+    <main class="flex-grow container mx-auto px-6 py-8 flex flex-col overflow-hidden">
+        <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 p-4 bg-white rounded-lg shadow-inner custom-scrollbar max-h-full">
             <!-- Chat messages will be appended here -->
         </div>
         <div class="flex gap-4">
-            <input type="text" id="user-input" class="flex-grow p-3 rounded-lg border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary bg-background-light text-text-light" placeholder="Ask DoggyBot a question..."/>
+            <input type="text" id="user-input" class="flex-grow p-3 rounded-lg border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary bg-background-light text-text-light" placeholder="Ask DoggyBot a question... Type /info or /help"/>
             <button id="send-button" class="bg-primary text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">
                 Send
             </button>

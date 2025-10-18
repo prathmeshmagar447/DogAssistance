@@ -78,8 +78,8 @@
 
             const data = await response.json();
             appendMessage('bot', data.response);
-            // Append question suggestions after every bot response
-            appendMessage('bot', displayBotInfo(), true); // Pass a flag to style it differently if needed
+            // Removed: Append question suggestions after every bot response
+            // appendMessage('bot', displayBotInfo());
         } catch (error) {
             console.error('Error sending message:', error);
             appendMessage('bot', 'Sorry, something went wrong. Please try again later.');
@@ -109,41 +109,64 @@
 
 **OpenAI Chatbot Specification:**
 This chatbot is an AI assistant, leveraging OpenAI's advanced language models. It is specifically configured to provide information, advice, and engaging content exclusively about dogs, including training, health, behavior, and general facts.
-`;
+`.trim(); // Trim leading/trailing whitespace from the entire string
     }
 
     function formatBotResponse(text) {
-        // For now, just return the text. This can be extended later for markdown parsing.
-        return text;
+        let formattedText = text;
+
+        // Convert bold (**text**)
+        formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Convert italics (*text* or _text_)
+        formattedText = formattedText.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        formattedText = formattedText.replace(/_(.*?)_/g, '<em>$1</em>');
+
+        // Handle list items
+        // This regex captures list items and ensures they are processed as a block
+        const listBlockRegex = /(?:^|\n)([\*\-]\s.*(?:\n[\*\-]\s.*)*)/g;
+        formattedText = formattedText.replace(listBlockRegex, (match, listContent) => {
+            const items = listContent.split('\n').map(item => {
+                const trimmedItem = item.replace(/^[\*\-]\s/, '').trim();
+                return `<li>${trimmedItem}</li>`;
+            }).join('');
+            return `<ul>${items}</ul>`;
+        });
+
+        // Convert paragraphs (blocks of text separated by two or more newlines)
+        // and single newlines within paragraphs to <br>
+        formattedText = formattedText.split(/\n{2,}/).map(paragraph => {
+            // Replace single newlines within a paragraph with <br>
+            return `<p>${paragraph.replace(/\n/g, '<br>')}</p>`;
+        }).join('');
+
+        // Remove any empty paragraph tags that might result from the splitting
+        formattedText = formattedText.replace(/<p><\/p>/g, '');
+
+        return formattedText;
     }
 
-    function appendMessage(sender, text, isSuggestion = false) {
+    function appendMessage(sender, text) {
         const messageContainer = document.createElement('div');
-        messageContainer.classList.add('flex', 'items-end', 'mb-4', 'gap-2');
+        messageContainer.classList.add('flex', 'items-start', 'mb-4', 'gap-2'); // Changed to items-start for consistent top alignment
 
         const avatar = document.createElement('img');
-        avatar.classList.add('w-8', 'h-8', 'rounded-full', 'object-cover');
+        avatar.classList.add('w-8', 'h-8', 'rounded-full', 'object-cover', 'flex-shrink-0'); // Added flex-shrink-0
 
         const messageBubble = document.createElement('div');
-        messageBubble.classList.add('p-3', 'rounded-xl', 'max-w-[70%]', 'shadow-sm', 'break-words');
+        messageBubble.classList.add('p-3', 'rounded-xl', 'max-w-[70%]', 'shadow-md', 'break-words', 'relative'); // Changed shadow-sm to shadow-md, added relative
 
         if (sender === 'user') {
             messageContainer.classList.add('justify-end');
             avatar.src = 'https://api.dicebear.com/7.x/initials/svg?seed=User'; // Generic user avatar
-            messageBubble.classList.add('bg-primary', 'text-white', 'rounded-br-none');
+            messageBubble.classList.add('bg-primary', 'text-white', 'rounded-br-none', 'ml-auto'); // Added ml-auto for right alignment
             messageBubble.textContent = text;
             messageContainer.appendChild(messageBubble);
             messageContainer.appendChild(avatar);
         } else {
             messageContainer.classList.add('justify-start');
-            avatar.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_WGTcbtnyytV-e-mWy-zMRAs27OBmrV6Vi8BrAx5aLXNAhUf_Uts3Q47gQz5BLZzSCagu65NDjjtOAy83zU5hgkV8IfxX_1JVreqdF0IWXXnf7U9OMAw522BCCCACvMN5Pdi7-Kbj8xX5Sr-t9PjX0rsipq73ALpUGkM1X6aykp_sowRKSrw5nLaWvvNG7uFG_eDCQDsWQ0T3ZCndNJZ9ZX6LSwQT488kzfvrq4uKJoD4K_raMZ9dFKtMC4'; // DoggyBot avatar
-            if (isSuggestion) {
-                messageBubble.classList.add('bg-gray-100', 'text-gray-600', 'text-sm', 'italic', 'rounded-bl-none');
-                messageBubble.innerHTML = text; // Suggestions might already be formatted
-            } else {
-                messageBubble.classList.add('bg-gray-200', 'text-text-light', 'rounded-bl-none');
-                messageBubble.innerHTML = formatBotResponse(text); // Use formatBotResponse for bot messages
-            }
+            avatar.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_WGTcbtnyytV-e-mWy-zMRAs27OBmrV6Vi8BrAx5aLXNAhUf_Uts3Q47gQz5BLZzSCagu65NDfFQviRh07RoLdc0nfjjtOAy83zU5hgkV8IfxX_1JVreqdF0IWXXnf7U9OMAw522BCCCACvMN5Pdi7-Kbj8xX5Sr-t9PjX0rsipq73ALpUGkM1X6aykp_sowRKSrw5nLaWvvNG7uFG_eDCQDsWQ0T3ZCndNJZ9ZX6LSwQT488kzfvrq4uKJoD4K_raMZ9dFKtMC4'; // DoggyBot avatar
+            messageBubble.classList.add('bg-gray-100', 'text-text-light', 'rounded-bl-none', 'mr-auto'); // Changed bg-gray-200 to bg-gray-100, added mr-auto
+            messageBubble.innerHTML = formatBotResponse(text); // Always use formatBotResponse for bot messages
             messageContainer.appendChild(avatar);
             messageContainer.appendChild(messageBubble);
         }

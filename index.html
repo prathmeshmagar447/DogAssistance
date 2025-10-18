@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 <script>
         tailwind.config = {
             theme: {
@@ -37,6 +38,25 @@
             'GRAD' 0,
             'opsz' 24
         }
+
+        /* Custom Scrollbar for chat messages */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     </style>
 </head>
 <body class="bg-background-light font-display text-text-light">
@@ -54,7 +74,7 @@
 <a class="text-text-light hover:text-primary transition-colors" href="about.html">About</a>
 <a class="text-text-light hover:text-primary transition-colors" href="features.html">Features</a>
 </div>
-<button class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
+<button id="start-chat-button-header" class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
                     Start Chatting
                 </button>
 </nav>
@@ -91,7 +111,7 @@
         </nav>
     </header>
     <main class="flex-grow container mx-auto px-6 py-8 flex flex-col">
-        <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 p-4 bg-background-light rounded-lg shadow-inner">
+        <div id="chat-messages" class="flex-grow h-full overflow-y-auto mb-4 p-4 bg-white rounded-lg shadow-inner custom-scrollbar">
             <!-- Chat messages will be appended here -->
         </div>
         <div class="flex gap-4">
@@ -99,6 +119,9 @@
             <button id="send-button" class="bg-primary text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">
                 Send
             </button>
+        </div>
+        <div id="loading-indicator" class="hidden text-center text-text-light/60 mt-2">
+            DoggyBot is typing...
         </div>
     </main>
     <footer class="bg-background-light py-6 border-t border-primary/20">

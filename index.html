@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DoggyBot - Your AI Dog Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#42b6f0",
+                        "background-light": "#f6f7f8",
+                        "text-light": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light font-display text-text-light">
+<div class="flex flex-col min-h-screen">
+<header class="border-b border-primary/20">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4ZM17 17H7V16C7 14.34 10.34 13 12 13C13.66 13 17 14.34 17 16V17Z"></path>
+</svg>
+<h1 class="text-2xl font-bold text-text-light">DoggyBot</h1>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-text-light hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-text-light hover:text-primary transition-colors" href="about.html">About</a>
+<a class="text-text-light hover:text-primary transition-colors" href="features.html">Features</a>
+</div>
+<button class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
+                    Start Chatting
+                </button>
+</nav>
+</header>
+<main class="flex-grow flex items-center justify-center container mx-auto px-6 py-16">
+<div class="text-center max-w-2xl">
+<div class="flex justify-center mb-8">
+<img alt="A cute illustrated dog smiling" class="w-64 h-64 object-cover rounded-full shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_WGTcbtnyytV-e-mWy-zMRAs27OBmrV6Vi8BrAx5aLXNAhUf_Uts3Q47gQz5BLZzSCagu65NDfFQviRh07RoLdc0nfjjtOAy83zU5hgkV8IfxX_1JVreqdF0IWXXnf7U9OMAw522BCCCACvMN5Pdi7-Kbj8xX5Sr-t9PjX0rsipq73ALpUGkM1X6aykp_sowRKSrw5nLaWvvNG7uFG_eDCQDsWQ0T3ZCndNJZ9ZX6LSwQT488kzfvrq4uKJoD4K_raMZ9dFKtMC4"/>
+</div>
+<h2 class="text-4xl md:text-5xl font-extrabold text-text-light mb-4 leading-tight">
+                    Your Personal AI Dog Assistant
+                </h2>
+<p class="text-lg text-text-light/80 mb-8">
+                    Struggling with puppy training? Curious about your dog's health? DoggyBot is here to help you with instant, friendly, and reliable advice.
+                </p>
+<a class="inline-block bg-primary text-white font-bold text-lg py-4 px-10 rounded-full hover:opacity-90 transition-all transform hover:scale-105" id="start-chat-button" href="#">
+                    Start Chatting Now
+                </a>
+</div>
+</main>
+
+<div id="chat-interface" class="fixed inset-0 bg-background-light flex flex-col hidden">
+    <header class="border-b border-primary/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4ZM17 17H7V16C7 14.34 10.34 13 12 13C13.66 13 17 14.34 17 16V17Z"></path>
+                </svg>
+                <h1 class="text-2xl font-bold text-text-light">DoggyBot Chat</h1>
+            </div>
+            <button id="close-chat-button" class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
+                Close Chat
+            </button>
+        </nav>
+    </header>
+    <main class="flex-grow container mx-auto px-6 py-8 flex flex-col">
+        <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 p-4 bg-background-light rounded-lg shadow-inner">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div class="flex gap-4">
+            <input type="text" id="user-input" class="flex-grow p-3 rounded-lg border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary bg-background-light text-text-light" placeholder="Ask DoggyBot a question..."/>
+            <button id="send-button" class="bg-primary text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">
+                Send
+            </button>
+        </div>
+    </main>
+    <footer class="bg-background-light py-6 border-t border-primary/20">
+        <div class="container mx-auto px-6 text-center text-text-light/60">
+            <p>© 2024 DoggyBot. All rights reserved. Built with love for our furry friends.</p>
+        </div>
+    </footer>
+</div>
+
+<footer class="bg-background-light py-6 border-t border-primary/20">
+<div class="container mx-auto px-6 text-center text-text-light/60">
+<p>© 2024 DoggyBot. All rights reserved. Built with love for our furry friends.</p>
+</div>
+</footer>
+</div>
+
+<script src="script.js"></script>
+</body></html>

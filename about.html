@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About DoggyBot - Your AI Dog Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#42b6f0",
+                        "background-light": "#f6f7f8",
+                        "text-light": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light font-display text-text-light">
+<div class="flex flex-col min-h-screen">
+<header class="border-b border-primary/20">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4ZM17 17H7V16C7 14.34 10.34 13 12 13C13.66 13 17 14.34 17 16V17Z"></path>
+</svg>
+<h1 class="text-2xl font-bold text-text-light">DoggyBot</h1>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-text-light hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-text-light hover:text-primary transition-colors" href="about.html">About</a>
+<a class="text-text-light hover:text-primary transition-colors" href="features.html">Features</a>
+</div>
+<button class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
+                    Start Chatting
+                </button>
+</nav>
+</header>
+<main class="flex-grow container mx-auto px-6 py-16">
+<div class="text-center max-w-4xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-extrabold text-text-light mb-4 leading-tight">
+                    About DoggyBot
+                </h2>
+<p class="text-lg text-text-light/80 mb-12">
+                    We're a team of passionate dog lovers, veterinarians, and AI experts dedicated to helping you be the best dog parent you can be.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+<div>
+<h3 class="text-3xl font-bold mb-4">Our Mission</h3>
+<p class="text-text-light/80 mb-6">
+                        Our mission is to make expert dog care advice accessible to everyone, anytime. We believe that a well-informed owner leads to a happier, healthier dog. DoggyBot was born from a simple idea: what if you could ask a knowledgeable friend about your dog's behavior, health, or training at any hour of the day? We've combined cutting-edge AI technology with a vast database of veterinary-approved information to create a reliable and friendly assistant for all your dog-related questions.
+                    </p>
+<img alt="A group of happy dogs playing together" class="rounded-xl shadow-lg w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_WGTcbtnyytV-e-mWy-zMRAs27OBmrV6Vi8BrAx5aLXNAhUf_Uts3Q47gQz5BLZzSCagu65NDfFQviRh07RoLdc0nfjjtOAy83zU5hgkV8IfxX_1JVreqdF0IWXXnf7U9OMAw522BCCCACvMN5Pdi7-Kbj8xX5Sr-t9PjX0rsipq73ALpUGkM1X6aykp_sowRKSrw5nLaWvvNG7uFG_eDCQDsWQ0T3ZCndNJZ9ZX6LSwQT488kzfvrq4uKJoD4K_raMZ9dFKtMC4"/>
+</div>
+<div>
+<img alt="An illustration of a team working on a computer with a dog" class="rounded-xl shadow-lg w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCly2Pkg8FycClfWIMQI6gy7Us6wzry5_YtrXS4mUC9OVxc-ibWPo-byGqj0ObB2MZcFjJCb0f5I74HBYJ98kiWEgqyy5hDxNXxcT_i37yg_R_-H4LHs6pdrdPOM56LF_HEPXxaCaY5MBtN-iS-KE8dYqPqdVZ7DhP3PRMwZ4Q8Eh6EdapicyWMx5KKFeymcQDfNNrY3J3nMub_02xkkq0VN0FOhN1lq_G40Ssgffl_KMGe_vm0pGZtbGDeNQ16qlNXAm6KVdS3Mtw"/>
+</div>
+</div>
+<div class="bg-primary/10 p-8 md:p-12 rounded-xl mb-16">
+<h3 class="text-3xl font-bold text-center mb-8">Meet the Team</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center">
+<img alt="Team member Dr. Emily Carter" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2pcPiGSSRxyNH2PA48iOK866KDIaEnwy2wQPeZO7Yawf6QmsYXrAs3jBEIQ5Lze8LOjIb0LQH3QHksXHVuJX2XdGWCbfFWXnBB-3gXnzT_Hizyhk8SZZNHKEwNInM2lVMK88-PtjrPQ9imCEQgOgM-hv2Iz4--IBInuk2OYbHabsnd3WNPY-2WRdKo6th5YYNfvMg0Tt3XrrNKyRUHlCX8C5qsqheUb65r6S2dcp7F5Rp791qyXeqvcx1PSwIdEQHTEantu7AByc"/>
+<h4 class="font-bold text-lg">Dr. Emily Carter</h4>
+<p class="text-sm text-primary">Chief Veterinary Officer</p>
+</div>
+<div class="text-center">
+<img alt="Team member Alex Chen" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjdRm8tfFj8jy7kexLEOCC_9gZG9rmcnfJEp4nI4m6d3_xMPgzfWMKflupTlJ9gxmHb4fI6bh7oD53atQHLsSV05Hb-UdyvxRuf605BLWUCsfUUeIfZg57hR1ttzZxwyDhrUqtJipCCBWmqvNAHj-v-42hvB5lvG_1Qkoj508p31d959WACsObwINTqQ3-kU5umxvdp42YLdBkPl0OuWu_fofVcktcvFEivdk3RMrZarpME9_Vun3hv_VDaWyRcVtBAosfXHJpkD8"/>
+<h4 class="font-bold text-lg">Alex Chen</h4>
+<p class="text-sm text-primary">Lead AI Engineer</p>
+</div>
+<div class="text-center">
+<img alt="Team member Jessica Miller" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmxc0QyT1DUvstBqG8If5RTXAPH442yTi8_3g7QNLwg-CpaF6wTyRwsLmpIGwkZTZjEw_yTsLuh5cAiAunT9tzb1gFLUnHlnUfkhcKPyeWfG5kMkFgzybyf_GpNX9qXYlrRoO0LjE5MDrzMhZ8DkZ1uHWd7DOh_Dhvt-oskzBbVEh-4xZSnkCDEXsF1UP_QFAHWygOvkDPN5toDw8MJ5fshn2xl8e2tjhIYgAL01UI5UNO_qGUGhhJaR6e5XjYnMQtt0WnSyDg7FE"/>
+<h4 class="font-bold text-lg">Jessica Miller</h4>
+<p class="text-sm text-primary">Head of Product</p>
+</div>
+<div class="text-center">
+<img alt="Team member Leo, the office dog" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD11_iOl5IfbJzawjgIv__7iFCrMH47s1-xj9rxAwTChgq0kDppCrjK9MiRgqXZCUzWvD9SWxou3WUxXpnhZeH1MCXWuDU1MHo66rakCLfCTBqd3IoEeVirnTQVcaL21Mp84pq9GUP1mP4XRlWaDCNUUPL5Cmq6yzYw3_OunDMhTRFLILsMtw_jS1Dk3b6FqMZRUR5Gl-vtHHRYLANgN4k3cSVndPaj0VYS7Ht-7y811vr-d2Nk34KijTQZou6LrsCYcwKQ_wWe5tk"/>
+<h4 class="font-bold text-lg">Leo</h4>
+<p class="text-sm text-primary">Chief Morale Officer</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-3xl font-bold text-center mb-8">What Our Users Say</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-background-light p-6 rounded-lg shadow-md border border-primary/20">
+<p class="text-text-light/80 mb-4">"DoggyBot has been a lifesaver! As a first-time puppy owner, I had so many questions. It's like having a vet in my pocket 24/7. So reassuring and easy to use."</p>
+<div class="flex items-center">
+<img alt="User Sarah L." class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsJcRtP9UGC7sA1wRSAKZroVv9he5pc6DkRIbz2J1tX8S5EDbRwj0FnO0rKylOYoVRk2PcVtq4TtMKBp0YMfAo_4fuhoIefNH96V9WHeh6Sx_AnsWP8CowTwniQidrYIV2OgNYHNtACklD1ivR_hbcF6O6x0N1EOsKmPEeA0O224qfkbP6KD-dK-INC-ka-6FS791eJU3tYtF7ixMUm8G-p5DdOqgHMhith6B7TbgDf70JwbXZHGgKki1SQCsL_jwOFD9U3v_GKHE"/>
+<div>
+<p class="font-bold">Sarah L.</p>
+<p class="text-sm text-text-light/60">Owner of Max, Golden Retriever</p>
+</div>
+</div>
+</div>
+<div class="bg-background-light p-6 rounded-lg shadow-md border border-primary/20">
+<p class="text-text-light/80 mb-4">"I was skeptical about an AI chatbot, but the advice is genuinely helpful and aligns with what my vet says. It's great for those late-night worries. Highly recommend!"</p>
+<div class="flex items-center">
+<img alt="User Mark T." class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7DFBHvzbyh_Tov0jgTLU7exyeAFKTm6lEoSY2YNEXkS4Xo8J78se6feTPY23Ywv4yarPWo75JwueLUXKK3jxsrD6XIE8oJLtbcbc6tXzOk7KG2XQfGw7PJpJXOPiy0EYXeqTvYnho7HnHxEOBKV4sG-9LAQP6qdGV-jmbXodu6krLzsa5Bn0_L7PQsoH6LL6v7BJEgJ11SdBZ32MCDQyP6CpxJYQ6yhLGirouuSLb3wlwvJm5ywV3jLTNEwQ07INkBRN8VtQz6U"/>
+<div>
+<p class="font-bold">Mark T.</p>
+<p class="text-sm text-text-light/60">Owner of Luna, Beagle</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-background-light py-6 border-t border-primary/20">
+<div class="container mx-auto px-6 text-center text-text-light/60">
+<p>© 2024 DoggyBot. All rights reserved. Built with love for our furry friends.</p>
+</div>
+</footer>
+</div>
+
+</body></html>

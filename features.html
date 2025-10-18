@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Features - DoggyBot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#42b6f0",
+                        "background-light": "#f6f7f8",
+                        "text-light": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light font-display text-text-light">
+<div class="flex flex-col min-h-screen">
+<header class="border-b border-primary/20">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4ZM17 17H7V16C7 14.34 10.34 13 12 13C13.66 13 17 14.34 17 16V17Z"></path>
+</svg>
+<h1 class="text-2xl font-bold text-text-light">DoggyBot</h1>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-text-light hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-text-light hover:text-primary transition-colors" href="about.html">About</a>
+<a class="text-primary font-bold hover:text-primary transition-colors" href="features.html">Features</a>
+</div>
+<button class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
+                    Start Chatting
+                </button>
+</nav>
+</header>
+<main class="flex-grow container mx-auto px-6 py-16">
+<div class="text-center max-w-4xl mx-auto mb-16">
+<h2 class="text-4xl md:text-5xl font-extrabold text-text-light mb-4 leading-tight">
+                    Features Made for Paws
+                </h2>
+<p class="text-lg text-text-light/80 mb-8">
+                    DoggyBot is packed with features to help you navigate the journey of dog parenthood. From health concerns to training tips, we've got you covered.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+<div class="bg-primary/10 p-8 rounded-xl h-full">
+<div class="bg-white rounded-lg shadow-lg p-6 flex flex-col space-y-4">
+<div class="flex items-start gap-4">
+<img alt="User Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsJcRtP9UGC7sA1wRSAKZroVv9he5pc6DkRIbz2J1tX8S5EDbRwj0FnO0rKylOYoVRk2PcVtq4TtMKBp0YMfAo_4fuhoIefNH96V9WHeh6Sx_AnsWP8CowTwniQidrYIV2OgNYHNtACklD1ivR_hbcF6O6x0N1EOsKmPEeA0O224qfkbP6KD-dK-INC-ka-6FS791eJU3tYtF7ixMUm8G-p5DdOqgHMhith6B7TbgDf70JwbXZHGgKki1SQCsL_jwOFD9U3v_GKHE"/>
+<div class="bg-gray-200 p-3 rounded-lg max-w-xs">
+<p class="text-sm">My puppy keeps chewing on my shoes. What can I do?</p>
+</div>
+</div>
+<div class="flex items-start gap-4 justify-end">
+<div class="bg-primary text-white p-3 rounded-lg max-w-xs">
+<p class="text-sm">That's a common puppy behavior! Chewing is natural. To redirect this, provide plenty of appropriate chew toys. When you catch your puppy chewing shoes, say "No" firmly but calmly, and immediately offer a chew toy. Praise them when they take the toy.</p>
+</div>
+<svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4ZM17 17H7V16C7 14.34 10.34 13 12 13C13.66 13 17 14.34 17 16V17Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-4xl text-primary">chat_bubble</span>
+<h3 class="text-3xl font-bold">24/7 Chat Support</h3>
+</div>
+<p class="text-text-light/80 mb-8">
+                        Got a question at 3 AM? No problem. DoggyBot is always online to provide instant, reliable answers to your questions about dog health, behavior, and nutrition. Our AI is trained on a vast library of veterinary-approved knowledge.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+<div class="md:order-2">
+<div class="bg-primary/10 p-8 rounded-xl h-full">
+<div class="bg-white rounded-lg shadow-lg p-6">
+<div class="flex items-center mb-4">
+<span class="material-symbols-outlined text-3xl text-primary mr-3">local_hospital</span>
+<h4 class="text-xl font-bold">Symptom Checker</h4>
+</div>
+<p class="text-sm text-text-light/80 mb-4">Describe your dog's symptoms to get a preliminary analysis and guidance on whether it's an emergency or something you can monitor at home.</p>
+<div class="space-y-2">
+<div class="flex items-center justify-between bg-gray-100 p-3 rounded-md">
+<span class="font-medium">Lethargy</span>
+<div class="w-1/2 bg-gray-300 rounded-full h-2.5">
+<div class="bg-yellow-500 h-2.5 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between bg-gray-100 p-3 rounded-md">
+<span class="font-medium">Loss of Appetite</span>
+<div class="w-1/2 bg-gray-300 rounded-full h-2.5">
+<div class="bg-orange-500 h-2.5 rounded-full" style="width: 70%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between bg-gray-100 p-3 rounded-md">
+<span class="font-medium">Vomiting</span>
+<div class="w-1/2 bg-gray-300 rounded-full h-2.5">
+<div class="bg-red-600 h-2.5 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</div>
+<p class="text-xs text-center mt-4 text-text-light/60">Disclaimer: This is not a substitute for professional veterinary advice.</p>
+</div>
+</div>
+</div>
+<div class="md:order-1">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-4xl text-primary">health_and_safety</span>
+<h3 class="text-3xl font-bold">Health & Symptom Guide</h3>
+</div>
+<p class="text-text-light/80 mb-8">
+                        Worried about your dog's health? Use our Symptom Checker to understand potential issues. Simply describe the symptoms, and our AI will provide information and suggest next steps, helping you decide if a vet visit is necessary.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="bg-primary/10 p-8 rounded-xl h-full">
+<div class="bg-white rounded-lg shadow-lg p-6">
+<div class="flex items-center mb-4">
+<span class="material-symbols-outlined text-3xl text-primary mr-3">school</span>
+<h4 class="text-xl font-bold">Training Plan: Puppy Basics</h4>
+</div>
+<div class="space-y-3">
+<div class="flex items-center">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" id="task1" type="checkbox" value=""/>
+<label class="ml-3 text-sm font-medium text-text-light" for="task1">Week 1: Sit Command</label>
+</div>
+<div class="flex items-center">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" id="task2" type="checkbox" value=""/>
+<label class="ml-3 text-sm font-medium text-text-light" for="task2">Week 2: Stay Command</label>
+</div>
+<div class="flex items-center">
+<input checked="" class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" id="task3" type="checkbox" value=""/>
+<label class="ml-3 text-sm font-medium text-text-light line-through" for="task3">Week 3: Leash Training</label>
+</div>
+<div class="flex items-center">
+<input checked="" class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" id="task4" type="checkbox" value=""/>
+<label class="ml-3 text-sm font-medium text-text-light line-through" for="task4">Week 4: Potty Training</label>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-4xl text-primary">pets</span>
+<h3 class="text-3xl font-bold">Personalized Training Plans</h3>
+</div>
+<p class="text-text-light/80 mb-8">
+                        From basic obedience to advanced tricks, DoggyBot can generate customized training plans based on your dog's age, breed, and your goals. Get step-by-step instructions and video examples to guide you through the process.
+                    </p>
+</div>
+</div>
+</main>
+<footer class="bg-background-light py-6 border-t border-primary/20">
+<div class="container mx-auto px-6 text-center text-text-light/60">
+<p>© 2024 DoggyBot. All rights reserved. Built with love for our furry friends.</p>
+</div>
+</footer>
+</div>
+
+</body></html>
